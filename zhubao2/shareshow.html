@@ -27,13 +27,13 @@
 
     </div>
     <div class="logobottom">
-            <img src="/public/zhubao2/images/logo.png" class="logo">
+            <img src="images/logo.png" class="logo">
     </div>
     <!---手链搭配结果显示页-->
     <div class="endshow" style="display:block">
         <p class="text"></p>
-        <img src="/public/zhubao2/images/endsimg.png"  class="endslogan">
-        <a href="" class="sharebtn sharebtn2 img"><img src="/public/zhubao2/images/dybtn.png"></a>
+        <img src="images/endsimg.png"  class="endslogan">
+        <a href="" class="sharebtn sharebtn2 img"><img src="images/dybtn.png"></a>
         <div class="selectbg img"><img src=""></div>
     </div>
     <audio src=""  id="Audio" preload="auto" loop="loop"></audio>    
@@ -53,13 +53,13 @@
         var bijou_var=infoarray[2].split('=')[1];
         var bijoutype_var=infoarray[3].split('=')[1];
         var style_index=parseInt(infoarray[4].split('=')[1])+1;
-        var ropehtml='<img src="/public/zhubao2/images/rope/rope_'+ropeindex+'.png" class="ropetype">';
+        var ropehtml='<img src="images/rope/rope_'+ropeindex+'.png" class="ropetype">';
          $('#bijoushow').append(ropehtml);
         var bijou_array=bijou_var.split(',');
         var bijoutype_array=bijoutype_var.split(',');
         var bijou_length=bijou_array.length;
          for (i = 0; i < bijou_length; i++){
-           var bj_html='<img src="/public/zhubao2/images/bijou/bj_'+bijou_array[i].replace(/[^0-9]/ig,"")+'.png" bijoutype="type_'+bijoutype_array[i].replace(/[^0-9]/ig,"")+'" class="bijouimg bijou_'+bijou_array[i].replace(/[^0-9]/ig,"")+'" >';
+           var bj_html='<img src="images/bijou/bj_'+bijou_array[i].replace(/[^0-9]/ig,"")+'.png" bijoutype="type_'+bijoutype_array[i].replace(/[^0-9]/ig,"")+'" class="bijouimg bijou_'+bijou_array[i].replace(/[^0-9]/ig,"")+'" >';
            var audio_bijou_src='audio/audio_'+bijou_array[i]+'.mp3';
            var audio_bijou_html='<audio src="'+audio_bijou_src+'"  id="audio_bijou_'+bijou_array[i]+'" preload="auto"></audio>';
             
