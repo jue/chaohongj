@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>音乐主张由你</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="css/index.css?1" type="text/css" rel="stylesheet" />
+    <link href="css/animate.css" type="text/css" rel="stylesheet" />
+    <script>
+        (function() {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            var fontSize = Math.min(w, h) / 32;
+            if (fontSize > 16) {
+                fontSize = 16;
+            }
+            document.getElementsByTagName('html')[0].setAttribute("style", "font-size:" + fontSize + "px");
+        }());
+    </script>
+</head>
+
+<body>
+    <div id="bijoushow" class="positionselect">
+
+    </div>
+    <div class="logobottom">
+            <img src="/public/zhubao2/images/logo.png" class="logo">
+    </div>
+    <!---手链搭配结果显示页-->
+    <div class="endshow" style="display:block">
+        <p class="text"></p>
+        <img src="/public/zhubao2/images/endsimg.png"  class="endslogan">
+        <a href="" class="sharebtn sharebtn2 img"><img src="/public/zhubao2/images/dybtn.png"></a>
+        <div class="selectbg img"><img src=""></div>
+    </div>
+    <audio src=""  id="Audio" preload="auto" loop="loop"></audio>    
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="scripts/index.js?3" type="text/javascript"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+    $(function(){
+
+
+        var hrefload=window.location.href;
+        
+        //
+        var infoarray=hrefload.split('&');
+        var zdy_txt=decodeURI(infoarray[0].split('=')[1]);
+        ropeindex=infoarray[1].split('=')[1];
+        var bijou_var=infoarray[2].split('=')[1];
+        var bijoutype_var=infoarray[3].split('=')[1];
+        var style_index=parseInt(infoarray[4].split('=')[1])+1;
+        var ropehtml='<img src="/public/zhubao2/images/rope/rope_'+ropeindex+'.png" class="ropetype">';
+         $('#bijoushow').append(ropehtml);
+        var bijou_array=bijou_var.split(',');
+        var bijoutype_array=bijoutype_var.split(',');
+        var bijou_length=bijou_array.length;
+         for (i = 0; i < bijou_length; i++){
+           var bj_html='<img src="/public/zhubao2/images/bijou/bj_'+bijou_array[i].replace(/[^0-9]/ig,"")+'.png" bijoutype="type_'+bijoutype_array[i].replace(/[^0-9]/ig,"")+'" class="bijouimg bijou_'+bijou_array[i].replace(/[^0-9]/ig,"")+'" >';
+           var audio_bijou_src='audio/audio_'+bijou_array[i]+'.mp3';
+           var audio_bijou_html='<audio src="'+audio_bijou_src+'"  id="audio_bijou_'+bijou_array[i]+'" preload="auto"></audio>';
+            
+           $('body').append(audio_bijou_html);
+           $("#audio_bijou_"+bijou_array[i])[0].load();
+           $('#bijoushow').append(bj_html);
+
+        }
+        $('.endshow .text').text(zdy_txt).addClass('style_'+style_index);
+        var styleimgsrc='/public/zhubao2/images/styles_'+style_index+'.jpg';
+        $('.selectbg img').attr('src',styleimgsrc);
+        $('.selectbg img').attr('src',styleimgsrc);
+        $("#Audio").attr('src',musicsrc)
+        $("#Audio")[0].load();
+        play_audio();
+        setTimeout(function(){
+                array_bijou('#bijoushow',bijou_length);
+                playhandchain('#bijoushow',style_index);
+        },20)
+
+
+
+
+    })
+    </script>
+    <script>
+        function share(url) {
+            wx.config({
+                debug: false,
+                //appId: '<?php echo $signPackage["appId"]; ?>',
+                //timestamp: <?php echo $signPackage["timestamp"]; ?>,
+                //nonceStr: '<?php echo $signPackage["nonceStr"]; ?>',
+                //signature: '<?php echo $signPackage["signature"]; ?>',
+                jsApiList: [
+                    // 所有要调用的 API 都要加到这个列表中
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage'
+                ]
+            });
+            wx.ready(function() {
+                wx.onMenuShareAppMessage({
+                    title: '音乐主张由你',
+                    desc: '定制你的音乐手串，时尚“由你”说了算！',
+                    link: 'http://x.juyir.com/zhubao2/' + url,
+                    imgUrl: 'http://x.juyir.com/public/zhubao2/images/shareimg.jpg?1',
+                    success: function() {
+                        // _hmt.push(['_trackEvent', '微信分享', '成功分享', '分享给朋友']);
+                    },
+                });
+                wx.onMenuShareTimeline({
+                    title: '音乐主张由你',
+                    desc: '定制你的音乐手串，时尚“由你”说了算！',
+                    link: 'http://x.juyir.com/zhubao2/' + url,
+                    imgUrl: 'http://x.juyir.com/public/zhubao2/images/shareimg.jpg?1',
+                    success: function() {
+                        // _hmt.push(['_trackEvent', '微信分享', '成功分享', '分享到朋友圈(成功)']);
+                    }
+                });
+            });
+        }
+        share('');
+    </script>
+</body>
+
+</html>
