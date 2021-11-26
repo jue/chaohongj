@@ -1298,7 +1298,7 @@
                         tk_show('.texttips');
                         texttips=true;
                     }
-                    $('.selectbg img').attr('src','/public/zhubao2/images/styles_'+(index+1)+'.jpg');
+                    $('.selectbg img').attr('src','images/styles_'+(index+1)+'.jpg');
                     $('.selectpage').attr('id','styles_'+(index+1));
                     if(textint){
                         $('.usertext').val(textarray[index]);
@@ -1339,10 +1339,10 @@
         function share(url,callback) {
             var sharelink='';
             if((url=='')||(callback=='')){
-                sharelink='http://x.juyir.com/public/zhubao2/';
+                sharelink='http://x.juyir.com';
             }
             else{
-                sharelink='http://x.juyir.com/public/zhubao2/shareshow.html' + url;
+                sharelink='http://x.juyir.comshareshow.html' + url;
                 //location.href=sharelink;
                  alert(sharelink)
             }//
@@ -1365,7 +1365,7 @@
                     title: '音乐主张由你',
                     desc: '定制你的音乐手串，时尚“由你”说了算！',
                     link: sharelink,
-                    imgUrl: 'http://x.juyir.com/public/zhubao2//public/zhubao2/images/shareimg.jpg?1',
+                    imgUrl: 'http://x.juyir.comimages/shareimg.jpg?1',
                     success: function() {
                         alert('callback')
                          callback();
@@ -1376,7 +1376,7 @@
                     title: '音乐主张由你',
                     desc: '定制你的音乐手串，时尚“由你”说了算！',
                     link: sharelink,
-                    imgUrl: 'http://x.juyir.com/public/zhubao//public/zhubao2/images/shareimg.jpg?1',
+                    imgUrl: 'http://x.juyir.comimages/shareimg.jpg?1',
                     success: function() {
                         alert('callback')
                         callback();

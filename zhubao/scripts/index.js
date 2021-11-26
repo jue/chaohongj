@@ -1,7 +1,7 @@
 //音频地址
 //最后一个为背景音乐；
 
-var musiclist=['/public/zhubao/audio/audio1.mp3?3','/public/zhubao/audio/audio2.mp3?3','/public/zhubao/audio/audio3.mp3?3','/public/zhubao/audio/audio4.mp3?3','/public/zhubao/audio/audio5.mp3?3','/public/zhubao/audio/audio6.mp3?3','/public/zhubao/audio/audio7.mp3?3']
+var musiclist=['audio/audio1.mp3?3','audio/audio2.mp3?3','audio/audio3.mp3?3','audio/audio4.mp3?3','audio/audio5.mp3?3','audio/audio6.mp3?3','audio/audio7.mp3?3']
 
 var ropeindex = 0; //串绳索引；
 var xl_index = 0; //背景系列索引；
@@ -11,7 +11,7 @@ function int_allpage(ropelength){
     console.log(ropehtml)
     for(i = 0;i< ropelength;i++){
          
-        ropehtml=ropehtml+'<div class="rope"><img src="/public/zhubao/images/rope/rope_'+(i+1)+'.png" class="ropetype"><a href="javascript:;" class="xzbtn img"><img src="/public/zhubao/images/xzbtn.png"></a></div>';
+        ropehtml=ropehtml+'<div class="rope"><img src="images/rope/rope_'+(i+1)+'.png" class="ropetype"><a href="javascript:;" class="xzbtn img"><img src="images/xzbtn.png"></a></div>';
         ropebutton=ropebutton+'<a href="javascript:;">'+i+'</a>';
        
     }
@@ -302,7 +302,7 @@ function int_audio(){
     var audio_bijou_length=$('a[bijoutype]').size();
     console.log(audio_bijou_length);
     for(i=1;i<=audio_bijou_length;i++){
-        var audio_bijou_src='/public/zhubao/audio/audio_'+i+'.mp3';
+        var audio_bijou_src='audio/audio_'+i+'.mp3';
         var audio_bijou_html='<audio src="'+audio_bijou_src+'"  id="audio_bijou_'+i+'" preload="auto"></audio>';
         $('.bijoulist').append(audio_bijou_html);
         $("#audio_bijou_"+i)[0].load();
@@ -346,7 +346,7 @@ function PlayAudio(ele) {
 //播放珠珠音效；
 function playbijouaudio(bijouid){
     var bijou_index=bijouid.replace(/[^0-9]/ig,"");
-    //var bijouaudiosrc='/public/zhubao/audio/audio_'+xl_index+'.mp3';
+    //var bijouaudiosrc='audio/audio_'+xl_index+'.mp3';
     var $bijouaudioid=$("#audio_bijou_"+bijou_index);
     //$bijouaudioid.attr('src',bijouaudiosrc)
     //$bijouaudioid[0].load();

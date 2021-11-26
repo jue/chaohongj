@@ -1,7 +1,7 @@
 //音频地址
 //最后一个为背景音乐；
 
-var musicsrc='/public/zhubao2/audio/audio7.mp3?3';
+var musicsrc='audio/audio7.mp3?3';
 var ropeindex;
 var ropelength;
 function ropecheck(){
@@ -34,7 +34,7 @@ function intbijou() {
 function showbijou(styleindex) {
     $('.swiper-container').hide();
     $('.swiper-container').eq(styleindex).show();
-    $('.xlshow_bg img').attr('src','/public/zhubao2/images/xlbg_'+(styleindex+1)+'.jpg').show();
+    $('.xlshow_bg img').attr('src','images/xlbg_'+(styleindex+1)+'.jpg').show();
     $('.chosexlpage').attr('id','xlshow_'+(styleindex+1));
 
 }
@@ -244,11 +244,11 @@ function array_bijou(idname,bj_num) {
     $('#bijoushow img.gezhu').remove();
     //黄金手镯隔珠
     if(ropeindex==1){
-        var gzimgsrc='/public/zhubao2/images/gz_1.png';
+        var gzimgsrc='images/gz_1.png';
     }
     //K金手镯隔珠
     else if(ropeindex==2){
-        var gzimgsrc='/public/zhubao2/images/gz_2.png';
+        var gzimgsrc='images/gz_2.png';
     };
     //添加隔珠；
     
@@ -321,7 +321,7 @@ function int_audio(){
     //var audio_bijou_length=$('a[bijoutype]').size();
     var audio_bijou_length=85;
     for(i=1;i<=audio_bijou_length;i++){
-        var audio_bijou_src='/public/zhubao2/audio/audio_'+i+'.mp3';
+        var audio_bijou_src='audio/audio_'+i+'.mp3';
         var audio_bijou_html='<audio src="'+audio_bijou_src+'"  id="audio_bijou_'+i+'" preload="auto"></audio>';
         $('.bijoulist').append(audio_bijou_html);
         $("#audio_bijou_"+i)[0].load();
